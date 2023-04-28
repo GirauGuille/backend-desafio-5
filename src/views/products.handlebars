@@ -9,18 +9,6 @@
   <button onclick="location.href='/views/perfil'">Perfil</button>
 </div>
 
-{{!--     {{#each products.docs}}
-  <section class="productsContainer">
-
-      <div class="productsCard">
-        <h3>Nombre: {{title}}</h3>
-        <h4>Precio:{{price}}</h4>
-        <img src="{{thumbnail}}" /></div>
-  </section>
-{{else}}
-  <h3>No hay productos agregados!</h3>
-{{/if}}
---}}
 
 <section class="container">
   <div class="row">
@@ -28,34 +16,23 @@
       <h1 class="text-center">Estos son nuestros productos</h1>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Stock</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each products.docs}}
-          <tr>
-            <td>{{title}}</td>
-            <td>{{description}}</td>
-            <td>{{price}}</td>
-            <td>{{stock}}</td>
-            <td>
-              <button>
-                <a href="/views/products/{{_id}}">Ver producto</a>
-              </button>
-            </td>
-          </tr>
-          {{/each}}
-        </tbody>
-      </table>
+</section>
+
+  {{#each products.docs}}
+  <div class="conteiner-fluid ">
+    <div class="row d-flex justify-content-evenly">
+        <div class="col-lg-4 col-md-6" style="width: 35rem;">
+            <div data-aos="flip-up" class="card">
+                <h3>Nombre: {{title}}</h3>
+                <img src={{thumbnail}}  alt="">
+                <button><a href="/views/products/{{_id}}">Ver producto</a></button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    {{/each}}
 
       {{#if products.hasPrevPage}}
       <button>
@@ -72,3 +49,5 @@
     </div>
   </div>
 </section>
+
+
