@@ -1,0 +1,74 @@
+<div class="usuario">
+  <h2>BIENVENIDO: {{email}}</h2>
+  {{#if isAdmin}}
+  <h3>(admin)</h3>
+  {{/if}}
+  {{#if role}}
+  <h3>(user)</h3>
+  {{/if}}
+  <button onclick="location.href='/views/perfil'">Perfil</button>
+</div>
+
+{{!--     {{#each products.docs}}
+  <section class="productsContainer">
+
+      <div class="productsCard">
+        <h3>Nombre: {{title}}</h3>
+        <h4>Precio:{{price}}</h4>
+        <img src="{{thumbnail}}" /></div>
+  </section>
+{{else}}
+  <h3>No hay productos agregados!</h3>
+{{/if}}
+--}}
+
+<section class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">Estos son nuestros productos</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each products.docs}}
+          <tr>
+            <td>{{title}}</td>
+            <td>{{description}}</td>
+            <td>{{price}}</td>
+            <td>{{stock}}</td>
+            <td>
+              <button>
+                <a href="/views/products/{{_id}}">Ver producto</a>
+              </button>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+
+      {{#if products.hasPrevPage}}
+      <button>
+        <a href="/views/products/page/{{products.prevPage}}">Anterior</a>
+      </button>
+      {{/if}}
+
+      {{#if products.hasNextPage}}
+      <button>
+        <a href="/views/products/page/{{products.nextPage}}">Siguiente</a>
+      </button>
+      {{/if}}
+
+    </div>
+  </div>
+</section>
