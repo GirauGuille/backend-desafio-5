@@ -1,29 +1,21 @@
-<button onclick="location.href='/views/products'">
-  Store
-</button>
+<div class="userCard">
+  <h2>Hola: {{email}}</h2>
+  {{#if isAdmin}}
+  <h1>(admin)</h1>
+  {{/if}}
 
-{{#if isAdmin}}
-<h1>(admin)</h1>
-{{/if}}
+  {{#if role}}
+  <h1>(user)</h1>
+  {{/if}}
 
-{{#if role}}
-<h1>(user)</h1>
-{{/if}}
+  <p>Primer nombre: {{first_name}}  </p>
+  <p>Segundo nombre: {{last_name}}</p>
+  <p>Edad: {{age}}</p>
+  <button onclick="location.href='/views/products'">Ir a la tienda</button>
 
-<h2>
-  Welcome
-  {{email}}
-</h2>
+  <button onclick="location.href='/users/logout'">Logout</button>
+</div>
 
-<p>
-  {{first_name}}
-  {{last_name}}
-</p>
 
-<p>
-  {{age}}
-</p>
 
-<button onclick="location.href='/users/logout'">
-  Logout
-</button>
+

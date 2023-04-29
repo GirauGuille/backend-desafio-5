@@ -9,42 +9,39 @@
   <button onclick="location.href='/views/perfil'">Perfil</button>
 </div>
 
-
-<section class="container">
-  <div class="row">
-    <div class="col-12">
-      <h1 class="text-center">Estos son nuestros productos</h1>
-    </div>
+<div>
+  <div>
+    <h1 class="text-center">Estos son nuestros productos</h1>
   </div>
-</section>
+</div>
 
-  {{#each products.docs}}
-  <div class="conteiner-fluid ">
-    <div class="row d-flex justify-content-evenly">
-        <div class="col-lg-4 col-md-6" style="width: 35rem;">
-            <div data-aos="flip-up" class="card">
-                <h3>Nombre: {{title}}</h3>
-                <img src={{thumbnail}}  alt="">
-                <button><a href="/views/products/{{_id}}">Ver producto</a></button>
-            </div>
-        </div>
+{{#each products.docs}}
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="card" style="width: 20rem;">
+      <img src={{thumbnail}} class="card-img" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">{{price}}</p>
+        <button><a href="/views/products/{{_id}}">Ver producto</a></button>
       </div>
     </div>
   </div>
-  
-    {{/each}}
+</div>
 
-      {{#if products.hasPrevPage}}
-      <button>
-        <a href="/views/products/page/{{products.prevPage}}">Anterior</a>
-      </button>
-      {{/if}}
+  {{/each}}
 
-      {{#if products.hasNextPage}}
-      <button>
-        <a href="/views/products/page/{{products.nextPage}}">Siguiente</a>
-      </button>
-      {{/if}}
+    {{#if products.hasPrevPage}}
+    <button>
+      <a href="/views/products/page/{{products.prevPage}}">Anterior</a>
+    </button>
+    {{/if}}
+
+    {{#if products.hasNextPage}}
+    <button>
+      <a href="/views/products/page/{{products.nextPage}}">Siguiente</a>
+    </button>
+    {{/if}}
 
     </div>
   </div>
